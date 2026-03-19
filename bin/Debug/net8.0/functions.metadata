@@ -1,0 +1,472 @@
+[
+  {
+    "name": "Home",
+    "scriptFile": "swa.dll",
+    "entryPoint": "Home.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get"
+        ],
+        "route": "/",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "SqlConnectionTest",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlConnectionTestFunction.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Function",
+        "methods": [
+          "get"
+        ],
+        "route": "sqltest/{Service}",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "SqlImageFunc",
+    "scriptFile": "swa.dll",
+    "entryPoint": "sqlwebapi.CategoryImageFunction.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get"
+        ],
+        "route": "swa/images/{Service}/{Resource}/{id}",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "SqlWebSiteDefinition",
+    "scriptFile": "swa.dll",
+    "entryPoint": "sqlwebapi.SqlWebSiteDefinition.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get",
+          "post",
+          "options"
+        ],
+        "route": "swa/SqlWebSiteDefinition",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "HttpPing",
+    "scriptFile": "swa.dll",
+    "entryPoint": "swa.Functions.HttpPing.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get",
+          "post"
+        ],
+        "route": "ping",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "ServerTime",
+    "scriptFile": "swa.dll",
+    "entryPoint": "swa.Functions.ServerTime.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get"
+        ],
+        "route": "time",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "OpenApi",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlWebApi.OpenApi.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get",
+          "post",
+          "options"
+        ],
+        "route": "swa/{Service}/swagger.json",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "ServiceSwaggerUI",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlWebApi.ServiceSwaggerUI.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get"
+        ],
+        "route": "docs",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "ServiceSwaggerUIByService",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlWebApi.ServiceSwaggerUI.RunByService",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get"
+        ],
+        "route": "docs/{service}",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "SqlGenerator",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlWebApi.SqlGenFunc.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get",
+          "post"
+        ],
+        "route": "SqlGenerator",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "SqlWebApi",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlWebApi.SqlWebApiFunc.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get",
+          "post",
+          "put",
+          "delete",
+          "options"
+        ],
+        "route": "swa/{Service}/{Resource}/{Id?}/{Details?}",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "SqlWebHook",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlWebApi.SqlWebHook.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "post",
+          "options"
+        ],
+        "route": "webhook/{Service}/{Resource}/{Id?}/{Details?}",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "Version",
+    "scriptFile": "swa.dll",
+    "entryPoint": "SqlWebApi.UpVersion.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get",
+          "post"
+        ],
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "RenderSwaggerDocument",
+    "scriptFile": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.dll",
+    "entryPoint": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.DefaultOpenApiHttpTrigger.RenderSwaggerDocument",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "GET"
+        ],
+        "route": "swagger.{extension}",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "RenderOpenApiDocument",
+    "scriptFile": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.dll",
+    "entryPoint": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.DefaultOpenApiHttpTrigger.RenderOpenApiDocument",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "GET"
+        ],
+        "route": "openapi/{version}.{extension}",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "RenderSwaggerUI",
+    "scriptFile": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.dll",
+    "entryPoint": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.DefaultOpenApiHttpTrigger.RenderSwaggerUI",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "GET"
+        ],
+        "route": "swagger/ui",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  },
+  {
+    "name": "RenderOAuth2Redirect",
+    "scriptFile": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.dll",
+    "entryPoint": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi.DefaultOpenApiHttpTrigger.RenderOAuth2Redirect",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "GET"
+        ],
+        "route": "oauth2-redirect.html",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  }
+]

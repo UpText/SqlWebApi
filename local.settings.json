@@ -1,0 +1,27 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "crmSqlConnectionString":    "Server=localhost,1433;Database=crm2;Initial Catalog=crm2;Persist Security Info=False;User ID=up-service-user;Password=UpServiceUserStrongPassword!23;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;",
+    "SqlConnectionString":  "Server=localhost,1433;Database=uptext;Initial Catalog=uptext;Persist Security Info=False;User ID=UpTextService;Password=UpService123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;",
+    "SqlGenConnectionString": "Server=localhost,1433;Initial Catalog=crm2;Persist Security Info=False;User ID=sa;Password=NeroPro1957+;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;",
+    "SqlServerLogDb": "Server=localhost,1433;Initial Catalog=NorthWind;Persist Security Info=False;User ID=sa;Password=NeroPro1957+;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;",
+    "JWT_SECRET": "ThisIsTheSecretKeyForSqlWebApiLonger",
+    "JWT_ISSUER": "SqlWebApi",
+    "JWT_AUDIENCE": "SWA_User",
+    "JWT_HOURS": "10",
+    "OpenApi__Version": "v2",
+    "OpenApi__DocTitle": "SqlWebApi OpenApi",
+    "OpenApi__DocDescription": "For your API use swa/{apiName}/swagger.json in Explore above",
+    "OpenApi__DocVersion": "1.1.2",
+    "CONFIG_API_BASEURL" : "http://localhost:8080/swa/api",
+    "SqlSchema" : "api",
+    "SQLWEBAPI__SQLSCHEMA": "api",
+    "SQLWEBAPI__SQLCONNECTIONSTRING": "Server=localhost,1433;Database=uptext;Initial Catalog=uptext;Persist Security Info=False;User ID=UpTextService;Password=UpService123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;"
+  },
+
+  "Host": {
+    "CORS": "*"
+  }
+}

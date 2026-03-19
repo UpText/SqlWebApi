@@ -1,0 +1,16 @@
+FUNCTIONS_WORKER_RUNTIME=dotnet-isolated
+AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+SqlConnectionString=Server=host.docker.internal,1433;Database=uptext;Initial Catalog=uptext;Persist Security Info=False;User ID=UpTextService;Password=UpService123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;
+SqlGenConnectionString=Server=host.docker.internal,1433;Database=uptext; Initial Catalog=uptext;Persist Security Info=False;User ID=sa;Password=NeroPro1957+;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;
+SqlServerLogDb=Server=host.docker.internal,1433;Initial Catalog=uptext;Persist Security Info=False;User ID=sa;Password=NeroPro1957+;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;
+JWT_SECRET=ThisIsTheSecretKeyForSqlWebApiLonger
+JWT_ISSUER=SqlWebApi
+JWT_AUDIENCE=SWA_User
+JWT_HOURS=10
+OpenApi__Version=v2
+OpenApi__DocTitle=SqlWebApi OpenApi
+OpenApi__DocDescription=For your API use swa/{apiName}/swagger.json in Explore above
+OpenApi__DocVersion=1.1.4
+SqlSchema=api
+SQLWEBAPI__SQLSCHEMA=api
+SQLWEBAPI__SQLCONNECTIONSTRING=Server=host.docker.internal,1433;Database=uptext;Initial Catalog=uptext;Persist Security Info=False;User ID=UpTextService;Password=UpService123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;

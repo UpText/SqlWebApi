@@ -1,0 +1,11 @@
+@baseUrl = http://localhost:7071/swa/api
+@username = admin
+@password = admin123
+
+### Get token
+POST {{baseUrl}}/login?username={{username}}&password={{password}} > {% client.global.set("token", response.body.token); %}
+
+### Call customers with token
+GET {{baseUrl}}/customers
+Authorization: Bearer {{token}}
+

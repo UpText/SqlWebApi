@@ -1,0 +1,17 @@
+@baseUrl = http://localhost:7071/swa
+@service = crmapi
+@url = {{baseUrl}}/{{service}}
+@username = admin
+
+###
+
+POST {{url}}/login
+
+{
+    "username": "ole@oren.no",
+    "password": "elo123"
+}
+
+### Get object
+GET    {{url}}/objects/attachments?object_path=2.png
+

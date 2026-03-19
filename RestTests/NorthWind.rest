@@ -1,0 +1,40 @@
+
+@baseUrl = http://localhost:7071/swa
+@service = api
+@url = {{baseUrl}}/{{service}}
+@username = admin
+@password = admin123
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsYXN0bmFtZSI6IkRvZSIsImZpcnN0bmFtZSI6IkpvaG4iLCJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwibmJmIjoxNzcxNzU4MDg5LCJleHAiOjE3NzE3OTQwODksImlzcyI6IlNxbFdlYkFwaSIsImF1ZCI6IlNXQV9Vc2VyIn0.ZyOvqenMTp1OscVDlUptGAhuZ17kUJ71awEdIxicQt4
+
+### Get token
+POST {{url}}/login?username={{username}}&password={{password}} 
+
+###
+GET {{baseUrl}}/ping
+
+### Get customers
+GET {{url}}/customers
+Authorization: Bearer {{token}}
+
+### Get all 
+GET   {{url}}/categories
+
+### test
+GET   {{url}}/test
+
+### Get single
+GET    {{url}}/categories/1
+
+### Get image
+{{baseUrl}}/images/api/categories/2
+
+###
+GET http://localhost:8080/swa/api/config/crmapi
+
+###
+GET http://localhost:7071/swa/crm/contact_notes?filter=%7B%7D&range=%5B0%2C0%5D&sort=%5B%22id%22%2C%22DESC%22%5D
+
+### Avatar
+https://www.gravatar.com/avatar/oleeirik@hotmail.com?d=404
+
+### Object
