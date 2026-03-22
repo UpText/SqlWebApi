@@ -64,3 +64,4 @@
 /Users/ole/UpText/Repos/swa/obj/Debug/net8.0/WorkerExtensions/obj/Release/net8.0/Microsoft.Azure.Functions.Worker.Extensions.pdb
 /Users/ole/UpText/Repos/swa/obj/Debug/net8.0/WorkerExtensions/obj/Release/net8.0/ref/Microsoft.Azure.Functions.Worker.Extensions.dll
 /Users/ole/UpText/Repos/swa/obj/Debug/net8.0/WorkerExtensions/obj/Release/net8.0/WorkerEx.422953E6.Up2Date
+/Users/ole/UpText/Repos/swa/obj/Debug/net8.0/WorkerExtensions/obj/Release/net8.0/WorkerExtensions.sourcelink.json

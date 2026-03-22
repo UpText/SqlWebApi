@@ -119,6 +119,8 @@ namespace SqlWebApi.Configuration
             
             value = Environment.GetEnvironmentVariable(key);
             if (value != null) return value;
+            value = ConfigDefaults.GetDefault(key);
+            if (value != null) return value;
             
             // SERVICE-NAME__KEY  (normalized)
             envKey = (_options.ServiceName + "__" + key)
@@ -126,7 +128,10 @@ namespace SqlWebApi.Configuration
                 .Replace('-', '_')
                 .ToUpperInvariant();
 
-            return Environment.GetEnvironmentVariable(envKey);
+            value = Environment.GetEnvironmentVariable(envKey);
+            if (value != null) return value;
+
+            return ConfigDefaults.GetDefault(envKey);
         }
 
         // ------------------------------------------------------------

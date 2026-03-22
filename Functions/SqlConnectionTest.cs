@@ -5,15 +5,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Extensions.Configuration;
+using SqlWebApi.Configuration;
 using SqlWebApi;
 public class SqlConnectionTestFunction
 {
-    private readonly IConfiguration _configuration;
+    private readonly IConfigProvider _configProvider;
 
-    public SqlConnectionTestFunction(IConfiguration configuration)
+    public SqlConnectionTestFunction(IConfigProvider configProvider)
     {
-        _configuration = configuration;
+        _configProvider = configProvider;
     }
 
     [Function("SqlConnectionTest")]
@@ -26,8 +26,7 @@ public class SqlConnectionTestFunction
     {
         CancellationToken cancellationToken = context.CancellationToken;
 
-        // Try both patterns: ConnectionStrings:SqlDb or SqlConnectionString
-        string connectionString =Environment.GetEnvironmentVariable("SqlConnectionString");
+        var connectionString = await _configProvider.GetAsync(Service + ":SqlConnectionString", cancellationToken);
 
         var result = await SqlConnectionTester.TestAsync(
             connectionString,

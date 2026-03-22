@@ -29,6 +29,7 @@ Thumbs.db
 
 # Logs
 *.log
+*.list
 
 # Test results and coverage
 [Tt]est[Rr]esult*/

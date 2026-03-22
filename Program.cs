@@ -8,7 +8,7 @@ using SqlWebApi.Configuration;
 using SqlWebApi.Middleware;
 using SqlWebApi.Services;
 
-var logConnectionString = Environment.GetEnvironmentVariable("SqlServerLogDb");
+var logConnectionString = ConfigDefaults.GetValue("SqlServerLogDb");
 if (!string.IsNullOrEmpty(logConnectionString))
     SqlLog.CheckOrCreateTable("dbo", "log",
         logConnectionString);
@@ -18,7 +18,7 @@ var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services.AddMemoryCache();
-        var serviceName = Environment.GetEnvironmentVariable("SqlWebApiServiceName") ?? "SqlWebApi";
+        var serviceName = ConfigDefaults.GetValue("SqlWebApiServiceName") ?? "SqlWebApi";
         var configProvider = AppConfigFactory.CreateConfigProvider(serviceName);
         services.AddSingleton<IConfigProvider>(configProvider);
         services.AddSingleton<ISqlWebApiExecutor, SqlWebApiExecutor>();

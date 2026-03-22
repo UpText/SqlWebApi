@@ -45,7 +45,7 @@ namespace SqlWebApi
 
         private static string GetServerUrl(HttpRequestData req, string service)
         {
-            var configuredBaseUrl = Environment.GetEnvironmentVariable("OPENAPI_PUBLIC_BASEURL");
+            var configuredBaseUrl = ConfigDefaults.GetValue("OPENAPI_PUBLIC_BASEURL");
             if (!string.IsNullOrWhiteSpace(configuredBaseUrl))
             {
                 return $"{configuredBaseUrl.TrimEnd('/')}/swa/{Uri.EscapeDataString(service)}";

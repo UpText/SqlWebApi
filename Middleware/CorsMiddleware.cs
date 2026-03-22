@@ -2,6 +2,7 @@ using System.Net;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.Functions.Worker.Middleware;
+using SqlWebApi.Configuration;
 
 namespace SqlWebApi.Middleware;
 
@@ -36,8 +37,7 @@ public sealed class CorsMiddleware : IFunctionsWorkerMiddleware
 
     private static string? GetAllowedOrigin(HttpRequestData request)
     {
-        var configuredOrigins = Environment.GetEnvironmentVariable("AllowedCorsOrigins")
-                               ?? Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS")
+        var configuredOrigins = ConfigDefaults.GetValue("AllowedCorsOrigins", "CORS_ALLOWED_ORIGINS")
                                ?? "http://localhost:8082";
 
         var allowedOrigins = configuredOrigins

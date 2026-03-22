@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.IdentityModel.Tokens;
+using SqlWebApi.Configuration;
 
 namespace SqlWebApi;
 
@@ -16,20 +17,9 @@ public static class ParseSecurityHeader
             var data = header.First();
             var stringToken = data.Substring(7); // Skip Bearer
             
-            var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET");
-            if (string.IsNullOrWhiteSpace(secretKey))
-            {
-                throw new Exception("JWT_SECRET environment variable is not set.");
-            }
-            var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
-            if (string.IsNullOrWhiteSpace(issuer))
-            {
-                throw new Exception("JWT_ISSUER environment variable is not set.");
-            }
-            var audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
-            if (string.IsNullOrWhiteSpace(audience))        {
-                throw new Exception("JWT_AUDIENCE environment variable is not set.");
-            }
+            var secretKey = ConfigDefaults.GetRequiredValue("JWT_SECRET");
+            var issuer = ConfigDefaults.GetRequiredValue("JWT_ISSUER");
+            var audience = ConfigDefaults.GetRequiredValue("JWT_AUDIENCE");
 
             var principal = JwtValidator.ValidateToken(
                 token: stringToken,
@@ -86,26 +76,10 @@ public static class ParseAndGetToken
         if (element.ValueKind == JsonValueKind.Array && element.GetArrayLength() > 0)
             element = element.EnumerateArray().First();
         
-        var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET");
-        if (string.IsNullOrWhiteSpace(secretKey))
-        {
-            throw new Exception("JWT_SECRET environment variable is not set.");
-        }
-        var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
-        if (string.IsNullOrWhiteSpace(issuer))
-        {
-            throw new Exception("JWT_ISSUER environment variable is not set.");
-        }
-        var audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
-        if (string.IsNullOrWhiteSpace(audience))
-        {
-            throw new Exception("JWT_AUDIENCE environment variable is not set.");
-        }
-        var hours = Environment.GetEnvironmentVariable("JWT_HOURS");
-        if (string.IsNullOrWhiteSpace(hours))
-        {
-            throw new Exception("JWT_HOURS environment variable is not set.");
-        }
+        var secretKey = ConfigDefaults.GetRequiredValue("JWT_SECRET");
+        var issuer = ConfigDefaults.GetRequiredValue("JWT_ISSUER");
+        var audience = ConfigDefaults.GetRequiredValue("JWT_AUDIENCE");
+        var hours = ConfigDefaults.GetValue("JWT_HOURS") ?? "8";
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

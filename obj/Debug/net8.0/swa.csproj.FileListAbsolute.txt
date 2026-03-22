@@ -256,3 +256,4 @@
 /Users/ole/UpText/Repos/swa/bin/output/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll
 /Users/ole/UpText/Repos/swa/bin/output/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/ole/UpText/Repos/swa/obj/Debug/net8.0/swa.csproj.Up2Date
+/Users/ole/UpText/Repos/swa/obj/Debug/net8.0/swa.sourcelink.json
